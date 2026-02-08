@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Propose Day 💖</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card {
+      background: white;
+      padding: 30px 20px;
+      border-radius: 20px;
+      text-align: center;
+      max-width: 320px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      animation: pop 0.6s ease;
+    }
+
+    @keyframes pop {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    h1 {
+      color: #ff4d6d;
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #444;
+      font-size: 15px;
+      margin-bottom: 25px;
+    }
+
+    .btn {
+      padding: 12px 22px;
+      border: none;
+      border-radius: 30px;
+      font-size: 15px;
+      cursor: pointer;
+      margin: 8px;
+      transition: 0.3s;
+    }
+
+    .yes {
+      background: #ff4d6d;
+      color: white;
+    }
+
+    .yes:hover {
+      background: #e63950;
+    }
+
+    .yes2 {
+      background: #ffd6e0;
+      color: #ff4d6d;
+    }
+
+    .yes2:hover {
+      background: #ffb3c6;
+    }
+
+    .heart {
+      font-size: 30px;
+      animation: beat 1s infinite;
+    }
+
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card" id="card">
+    <div class="heart">💗</div>
+    <h1>Happy Propose Day</h1>
+    <p>
+      Hey you 👀<br/>
+      I was wondering…<br/>
+      will you be <b>my favourite person</b> today and always?
+    </p>
+
+    <button class="btn yes" onclick="accepted()">Yes 😊</button>
+    <button class="btn yes2" onclick="accepted()">Obviously Yes 😌</button>
+  </div>
+
+  <script>
+    function accepted() {
+      const card = document.getElementById("card");
+      card.innerHTML = `
+        <div class="heart">💖💖💖</div>
+        <h1>Hehe 😌</h1>
+        <p>
+          Knew it.<br/>
+          You just made my Propose Day extra special 💕
+        </p>
+      `;
+    }
+  </script>
+
+</body>
+</html>
