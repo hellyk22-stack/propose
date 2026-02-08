@@ -59,15 +59,20 @@
   }
 
   #message {
-    margin-top: 30px;
+    margin-top: 25px;
     font-size: 26px;
     font-weight: bold;
+  }
+
+  #subMessage {
+    margin-top: 10px;
+    font-size: 20px;
+    opacity: 0.9;
   }
 
   /* floating hearts */
   .heart {
     position: absolute;
-    color: pink;
     font-size: 20px;
     animation: floatUp 5s linear infinite;
     opacity: 0.7;
@@ -97,10 +102,12 @@
 </div>
 
 <div id="message"></div>
+<div id="subMessage"></div>
 
 <script>
   const noBtn = document.getElementById("noBtn");
   const message = document.getElementById("message");
+  const subMessage = document.getElementById("subMessage");
 
   const noTexts = [
     "Think again 😏",
@@ -121,7 +128,8 @@
 
   function accepted() {
     message.innerText = "YAYYY 🥹💖 I knew it!!!";
-    createHearts(30);
+    subMessage.innerText = "See you at the gym tomorrow 💪😉";
+    createHearts(35);
   }
 
   function createHearts(count) {
@@ -137,7 +145,6 @@
     }
   }
 
-  // background hearts
   setInterval(() => createHearts(3), 800);
 </script>
 
