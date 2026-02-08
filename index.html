@@ -1,112 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Happy Propose Day 💖</title>
+  <meta charset="UTF-8">
+  <title>Happy Propose Day 💐</title>
+
   <style>
     body {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
       height: 100vh;
       display: flex;
-      align-items: center;
+      flex-direction: column;
       justify-content: center;
-    }
-
-    .card {
-      background: white;
-      padding: 30px 20px;
-      border-radius: 20px;
+      align-items: center;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      color: white;
       text-align: center;
-      max-width: 320px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-      animation: pop 0.6s ease;
-    }
-
-    @keyframes pop {
-      from { transform: scale(0.8); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
     }
 
     h1 {
-      color: #ff4d6d;
-      font-size: 22px;
+      font-size: 36px;
       margin-bottom: 10px;
     }
 
     p {
-      color: #444;
-      font-size: 15px;
-      margin-bottom: 25px;
+      font-size: 20px;
+      margin-bottom: 30px;
     }
 
-    .btn {
-      padding: 12px 22px;
+    .buttons {
+      position: relative;
+      height: 120px;
+    }
+
+    button {
+      padding: 14px 28px;
+      font-size: 18px;
       border: none;
       border-radius: 30px;
-      font-size: 15px;
       cursor: pointer;
-      margin: 8px;
-      transition: 0.3s;
+      transition: all 0.3s ease;
     }
 
     .yes {
-      background: #ff4d6d;
+      background-color: #ff1e56;
       color: white;
     }
 
-    .yes:hover {
-      background: #e63950;
+    .no {
+      background-color: #e9ecef;
+      color: black;
+      position: absolute;
+      left: 140px;
     }
 
-    .yes2 {
-      background: #ffd6e0;
-      color: #ff4d6d;
-    }
-
-    .yes2:hover {
-      background: #ffb3c6;
-    }
-
-    .heart {
-      font-size: 30px;
-      animation: beat 1s infinite;
-    }
-
-    @keyframes beat {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.2); }
+    #message {
+      margin-top: 30px;
+      font-size: 24px;
+      font-weight: bold;
     }
   </style>
 </head>
+
 <body>
 
-  <div class="card" id="card">
-    <div class="heart">💗</div>
-    <h1>Happy Propose Day</h1>
-    <p>
-      Hey you 👀<br/>
-      I was wondering…<br/>
-      will you be <b>my favourite person</b> today and always?
-    </p>
+  <h1>Happy Propose Day 💐</h1>
+  <p>Will you be my gym partner… and maybe more? 🫣👉👈</p>
 
-    <button class="btn yes" onclick="accepted()">Yes 😊</button>
-    <button class="btn yes2" onclick="accepted()">Obviously Yes 😌</button>
+  <div class="buttons">
+    <button class="yes" onclick="accepted()">Hell Yeahhh 🔥</button>
+    <button class="no" id="noBtn" onclick="thinkAgain()">Noooo 😜</button>
   </div>
 
+  <div id="message"></div>
+
   <script>
+    const noBtn = document.getElementById("noBtn");
+    const message = document.getElementById("message");
+
+    // Naughty NO button runs away
+    noBtn.addEventListener("mouseover", () => {
+      const x = Math.random() * 250 - 125;
+      const y = Math.random() * 120 - 60;
+      noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    });
+
+    function thinkAgain() {
+      message.innerText = "Think again 😏💭";
+    }
+
     function accepted() {
-      const card = document.getElementById("card");
-      card.innerHTML = `
-        <div class="heart">💖💖💖</div>
-        <h1>Hehe 😌</h1>
-        <p>
-          Knew it.<br/>
-          You just made my Propose Day extra special 💕
-        </p>
-      `;
+      message.innerText = "YAYYYY 🥹💖 See you at the gym!";
     }
   </script>
 
