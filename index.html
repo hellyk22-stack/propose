@@ -1,98 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Happy Propose Day 💐</title>
+<meta charset="UTF-8">
+<title>Happy Propose Day 💖</title>
 
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #ff758c, #ff7eb3);
-      color: white;
-      text-align: center;
-    }
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ff5f9e, #ffc371);
+    color: white;
+    text-align: center;
+  }
 
-    h1 {
-      font-size: 36px;
-      margin-bottom: 10px;
-    }
+  h1 {
+    font-size: 38px;
+    margin-bottom: 10px;
+  }
 
-    p {
-      font-size: 20px;
-      margin-bottom: 30px;
-    }
+  p {
+    font-size: 20px;
+    margin-bottom: 30px;
+    max-width: 90%;
+  }
 
-    .buttons {
-      position: relative;
-      height: 120px;
-    }
+  .buttons {
+    position: relative;
+    height: 150px;
+    width: 320px;
+  }
 
-    button {
-      padding: 14px 28px;
-      font-size: 18px;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
+  button {
+    padding: 15px 32px;
+    font-size: 18px;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
 
-    .yes {
-      background-color: #ff1e56;
-      color: white;
-    }
+  .yes {
+    background: #ff1e56;
+    color: white;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  }
 
-    .no {
-      background-color: #e9ecef;
-      color: black;
-      position: absolute;
-      left: 140px;
-    }
+  .no {
+    background: #f8f9fa;
+    color: black;
+    position: absolute;
+    left: 160px;
+  }
 
-    #message {
-      margin-top: 30px;
-      font-size: 24px;
-      font-weight: bold;
+  #message {
+    margin-top: 30px;
+    font-size: 26px;
+    font-weight: bold;
+  }
+
+  /* floating hearts */
+  .heart {
+    position: absolute;
+    color: pink;
+    font-size: 20px;
+    animation: floatUp 5s linear infinite;
+    opacity: 0.7;
+  }
+
+  @keyframes floatUp {
+    from {
+      transform: translateY(100vh);
+      opacity: 1;
     }
-  </style>
+    to {
+      transform: translateY(-10vh);
+      opacity: 0;
+    }
+  }
+</style>
 </head>
 
 <body>
 
-  <h1>Happy Propose Day 💐</h1>
-  <p>Will you be my gym partner… and maybe more? 🫣👉👈</p>
+<h1>Happy Propose Day 💐</h1>
+<p>Will you be my gym partner… and maybe my favorite person? 🫣👉👈</p>
 
-  <div class="buttons">
-    <button class="yes" onclick="accepted()">Hell Yeahhh 🔥</button>
-    <button class="no" id="noBtn" onclick="thinkAgain()">Noooo 😜</button>
-  </div>
+<div class="buttons">
+  <button class="yes" onclick="accepted()">Hell Yeah 😍</button>
+  <button class="no" id="noBtn">Nope 🙄</button>
+</div>
 
-  <div id="message"></div>
+<div id="message"></div>
 
-  <script>
-    const noBtn = document.getElementById("noBtn");
-    const message = document.getElementById("message");
+<script>
+  const noBtn = document.getElementById("noBtn");
+  const message = document.getElementById("message");
 
-    // Naughty NO button runs away
-    noBtn.addEventListener("mouseover", () => {
-      const x = Math.random() * 250 - 125;
-      const y = Math.random() * 120 - 60;
-      noBtn.style.transform = `translate(${x}px, ${y}px)`;
-    });
+  const noTexts = [
+    "Think again 😏",
+    "Are you sure? 👀",
+    "Last chance 😌",
+    "Don’t break my heart 💔",
+    "Okay now you're lying 🤨"
+  ];
+  let noCount = 0;
 
-    function thinkAgain() {
-      message.innerText = "Think again 😏💭";
+  noBtn.addEventListener("mouseover", () => {
+    const x = Math.random() * 260 - 130;
+    const y = Math.random() * 120 - 60;
+    noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    noBtn.innerText = noTexts[noCount % noTexts.length];
+    noCount++;
+  });
+
+  function accepted() {
+    message.innerText = "YAYYY 🥹💖 I knew it!!!";
+    createHearts(30);
+  }
+
+  function createHearts(count) {
+    for (let i = 0; i < count; i++) {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerText = "💖";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+      document.body.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 5000);
     }
+  }
 
-    function accepted() {
-      message.innerText = "YAYYYY 🥹💖 See you at the gym!";
-    }
-  </script>
+  // background hearts
+  setInterval(() => createHearts(3), 800);
+</script>
 
 </body>
 </html>
